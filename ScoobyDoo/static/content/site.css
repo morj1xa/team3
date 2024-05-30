@@ -1,0 +1,119 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.main-window {
+    background: #30393E;
+    display: flex;
+    padding: 89px 45.3px 0 0;
+    width: 1440px;
+    height: 982px;
+    box-sizing: border-box;
+}
+
+    .main-window .group-2 {
+        position: relative;
+        display: flex;
+        padding: 89px 45.3px 0 0;
+        width: 1440px;
+        height: 1024px;
+        box-sizing: border-box;
+    }
+
+    .main-window .rectangle-1 {
+        background: #30393E;
+        position: absolute;
+        top: 0px;
+        right: -288px;
+        width: 1728px;
+        height: 1117px;
+    }
+
+    .main-window .vector-1 {
+        position: absolute;
+        top: 332px;
+        right: -114.5px;
+        width: 719.5px;
+        height: 736.8px;
+    }
+
+    .main-window .vector-2 {
+        position: absolute;
+        left: -97px;
+        top: -112px;
+        width: 580.2px;
+        height: 623.6px;
+    }
+
+    .main-window .vector-3 {
+        position: absolute;
+        top: -112px;
+        right: -190px;
+        width: 389px;
+        height: 529px;
+    }
+
+    .main-window .scooby-doo {
+        position: relative;
+        overflow-wrap: break-word;
+        font-family: 'Inter';
+        font-weight: 600;
+        font-size: 118px;
+        color: #FAEFEB;
+    }
+
+    
+
+    .main-window .rectangle-2 {
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(7.5px);
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        left: 50%;
+        top: 87px;
+        translate: -50% 0;
+        width: 685px;
+        height: 650px;
+        display: flex;
+        justify-content: center; /* Центрирование по горизонтали */
+    }
