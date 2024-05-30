@@ -9,6 +9,19 @@
     <span class="scooby-doo">
         Scooby-Doo
     </span>
+    <p class="description">
+        Welcome to our website! We provide tools and knowledge to solve mathematical modeling problems:<br>
+
+        1. Linear Programming (LP): Efficient resource utilization.<br>
+   
+        2. Transportation Problem: Logistics and transportation optimization.<br>
+
+        3. Assignment Problem: Maximizing productivity and minimizing costs.<br>
+
+        4. Dual Problem to LP: Analyzing additional aspects of the problem.<br>
+
+        Our website offers theoretical concepts and practical tools for successful problem-solving.<br>Welcome to the world of possibilities and optimization!
+    </p>
   </div>
 
 </div>
