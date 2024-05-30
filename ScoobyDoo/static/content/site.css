@@ -95,9 +95,8 @@ input[type="checkbox"].input-validation-error {
     .main-window .scooby-doo {
         position: relative;
         overflow-wrap: break-word;
-        font-family: 'Inter';
         font-weight: 600;
-        font-size: 118px;
+        font-size: 90px;
         color: #FAEFEB;
         text-align: center;
     }
@@ -105,7 +104,6 @@ input[type="checkbox"].input-validation-error {
     .main-window .description {
         position: relative;
         overflow-wrap: break-word;
-        font-family: 'Inter';
         font-weight: 600;
         font-size: 20px;
         color: #FAEFEB;
@@ -157,22 +155,33 @@ input[type="checkbox"].input-validation-error {
         flex-direction: column;
     }
 
-.scrollable-text {
-    height: 448px; /* Установите фиксированную высоту */
-    overflow: auto; /* Добавляет полосы прокрутки при необходимости */
-    border: 1px solid #ccc;
-    color: #FAEFEB;
+
+.theory-sevaT {
+    position: relative;
+    overflow-wrap: break-word;
+    font-weight: lighter;
     font-size: 20px;
-    padding: 10px;
+    color: #FAEFEB;
 }
 
+.theory-seva-h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #FAEFEB;
+}
+
+.theory-seva-h2 {
+    font-size: 25px;
+    color: #FAEFEB;
+    font-weight: bold;
+}
 
 .seva-t {
     background: #30393E;
     display: flex;
     padding-bottom: 109px;
     width: 1440px;
-    height: 2028px;
+    height: 1700px;
     box-sizing: border-box;
 }
 
@@ -188,14 +197,14 @@ input[type="checkbox"].input-validation-error {
     .seva-t .vector-4 {
         position: absolute;
         top: 517px;
-        right: -100.5px;
+        right: -110.5px;
         width: 755.8px;
         height: 460.7px;
     }
 
     .seva-t .vector-2 {
         position: absolute;
-        left: -91px;
+        left: -120px;
         top: -112px;
         width: 480.2px;
         height: 623.6px;
@@ -204,10 +213,11 @@ input[type="checkbox"].input-validation-error {
     .seva-t .theory {
         position: relative;
         overflow-wrap: break-word;
-        font-family: 'Inter';
         font-weight: 600;
         font-size: 128px;
         color: #FAEFEB;
+        text-align: center;
+        margin-bottom:50px;
     }
 
     .seva-t .vector-3 {
@@ -229,5 +239,7 @@ input[type="checkbox"].input-validation-error {
         top: 87px;
         translate: -50% 0;
         width: 1168px;
-        height: 1752px;
+        height: 1368px;
+        flex-direction: column;
+        display: flex;
     }
