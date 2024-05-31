@@ -384,3 +384,54 @@ input[type="checkbox"].input-validation-error {
     .btn:hover {
         background-color: #376466;
     }
+
+.seva-pract-window {
+    
+    width: 1440px;
+    height: 982px;
+}
+
+.about-window {
+    width: 1440px;
+    height: 982px;
+}
+
+.git-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #74C8CB;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Добавляем анимацию для плавного изменения размера */
+    display: flex;
+    align-items: center; /* Выравнивание элементов по центру по вертикали */
+    height: 200px;
+    width: 400px;
+}
+
+    /* Стилизация кнопки при наведении */
+    .git-btn:hover {
+        background-color: #376466;
+        transform: scale(1.1); /* Увеличиваем размер кнопки при наведении */
+        color: #fff;
+        text-decoration:none;
+    }
+
+    /* Стилизация изображения внутри кнопки */
+    .git-btn img {
+        margin-right: 10px; /* Отступ справа от изображения */
+        height: 150px;
+        width: 150px;
+        border-radius: 40px;
+    }
+
+.row-div {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px;
+    gap:30px;
+}

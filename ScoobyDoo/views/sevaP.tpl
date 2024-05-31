@@ -11,7 +11,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="seva-pract-window">
         <h1 class="theory-seva-h1">Linear Programming Solver</h1>
         <form id="lp-form">
            <div class="input-div">
