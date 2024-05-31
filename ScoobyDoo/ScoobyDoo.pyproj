@@ -42,7 +42,9 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="JavaScript.js" />
     <Content Include="requirements.txt" />
+    <Content Include="static\assets\vectors\Vector 5.svg" />
     <Content Include="static\assets\vectors\vector_1_x2.svg" />
     <Content Include="static\assets\vectors\d.svg" />
     <Content Include="static\assets\vectors\vector_2_x2.svg" />

@@ -168,12 +168,21 @@ input[type="checkbox"].input-validation-error {
     font-size: 40px;
     font-weight: bold;
     color: #FAEFEB;
+    padding-bottom: 30px; 
+}
+
+.seva-input {
+    background: #FAEFEB;
 }
 
 .theory-seva-h2 {
     font-size: 25px;
     color: #FAEFEB;
     font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 15px;
 }
 
 .seva-t {
@@ -228,6 +237,7 @@ input[type="checkbox"].input-validation-error {
         height: 529px;
     }
 
+
     .seva-t .rectangle-2 {
         box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(7.5px);
@@ -242,4 +252,135 @@ input[type="checkbox"].input-validation-error {
         height: 1368px;
         flex-direction: column;
         display: flex;
+    }
+
+.input-container {
+    position: relative;
+    padding: 20px;
+}
+
+/* Стилизация текстового поля */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    border-color: #74C8CB;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+    /* Стилизация фокуса текстового поля */
+    .input-field:focus {
+        outline: none;
+        border-color: #007bff; /* Цвет границы при фокусе */
+    }
+
+/* Стилизация подписи */
+.input-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-30%);
+    left: 15px;
+    color: #666;
+    padding-left:10px;
+    padding-bottom: 15px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: top 0.3s, font-size 0.3s;
+}
+
+/* Стилизация подписи при активном состоянии (когда в поле есть текст) */
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+    top: -1px;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+/* Стилизация для плавающего ввода (floating input) */
+.input-floating {
+    padding-top: 10px; /* Увеличение верхнего отступа для учета плавающей подписи */
+}
+
+
+/* Стилизация основного контейнера */
+.textarea-container {
+    position: relative;
+    padding:20px;
+}
+
+/* Стилизация текстовой области */
+.textarea-field {
+    width: 100%;
+    min-height: 100px; /* Минимальная высота для обеспечения видимости текста */
+
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    border-color: #74C8CB;
+    resize: vertical; /* Разрешить только вертикальное изменение размера */
+    transition: border-color 0.3s ease;
+}
+
+    /* Стилизация фокуса текстовой области */
+    .textarea-field:focus {
+        outline: none;
+        border-color: #007bff; /* Цвет границы при фокусе */
+    }
+
+/* Стилизация подписи */
+.textarea-label {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-30%);
+    left: 10px;
+    color: #666;
+    padding-left:15px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: top 0.3s, font-size 0.3s;
+}
+
+/* Стилизация подписи при активном состоянии (когда в области есть текст) */
+.textarea-field:focus + .textarea-label,
+.textarea-field:not(:placeholder-shown) + .textarea-label {
+    top: -1px; /* Поднимаем подпись над полем */
+    font-size: 12px;
+}
+
+/* Стилизация для плавающего ввода (floating input) */
+.textarea-floating {
+    padding-top: 10px; /* Увеличение верхнего отступа для учета плавающей подписи */
+}
+
+.input-div{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Стилизация основного контейнера */
+.button-container {
+    position: relative;
+    padding: 20px;
+}
+
+/* Стилизация кнопки */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #74C8CB;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    /* Стилизация кнопки при наведении */
+    .btn:hover {
+        background-color: #376466;
     }
