@@ -254,6 +254,75 @@ input[type="checkbox"].input-validation-error {
         display: flex;
     }
 
+
+.petya-t {
+    background: #30393E;
+    display: flex;
+    padding-bottom: 109px;
+    width: 1440px;
+    height: 5200px;
+    box-sizing: border-box;
+}
+
+    .petya-t .group-2 {
+        position: relative;
+        display: flex;
+        padding: 91.9px 0 0 30.5px;
+        width: 1440px;
+        height: 1939px;
+        box-sizing: border-box;
+    }
+
+    .petya-t .vector-4 {
+        position: absolute;
+        top: 517px;
+        right: -110.5px;
+        width: 755.8px;
+        height: 460.7px;
+    }
+
+    .petya-t .vector-2 {
+        position: absolute;
+        left: -120px;
+        top: -112px;
+        width: 480.2px;
+        height: 623.6px;
+    }
+
+    .petya-t .theory {
+        position: relative;
+        overflow-wrap: break-word;
+        font-weight: 600;
+        font-size: 128px;
+        color: #FAEFEB;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .petya-t .vector-3 {
+        position: absolute;
+        top: -112px;
+        right: -190px;
+        width: 389px;
+        height: 529px;
+    }
+
+    .petya-t .rectangle-2 {
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(7.5px);
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        left: 50%;
+        padding: 20px;
+        top: 87px;
+        translate: -50% 0;
+        width: 1168px;
+        height: 4820px;
+        flex-direction: column;
+        display: flex;
+    }
+
 .input-container {
     position: relative;
     padding: 20px;

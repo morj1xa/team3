@@ -59,8 +59,8 @@ def about():
 def about():
     """Renders the about page."""
     return dict(
-        title='Теория',
-        message='Подробный разбор симплекс-метода.',
+        title='Практика',
+        message='Решение прямых ЗЛП.',
         year=datetime.now().year
     )
 
@@ -69,7 +69,7 @@ def about():
 def about():
     """Renders the about page."""
     return dict(
-        title='Практика',
-        message='Решение прямых ЗЛП.',
+        title='Теория',
+        message='Подробный разбор симплекс-метода.',
         year=datetime.now().year
     )
