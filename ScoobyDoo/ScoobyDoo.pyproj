@@ -45,6 +45,9 @@
   <ItemGroup>
     <Content Include="JavaScript.js" />
     <Content Include="requirements.txt" />
+    <Content Include="static\assets\images\1_1.png" />
+    <Content Include="static\assets\images\1_2.png" />
+    <Content Include="static\assets\images\1_3.png" />
     <Content Include="static\assets\images\petyapfp.jpg" />
     <Content Include="static\assets\images\sevapfp.jpg" />
     <Content Include="static\assets\images\temapfp.jpg" />
@@ -76,12 +79,14 @@
     <Content Include="static\scripts\respond.js" />
     <Content Include="static\scripts\respond.min.js" />
     <Content Include="static\scripts\_references.js" />
+    <Content Include="views\petyaP.tpl" />
     <Content Include="views\sevaP.tpl" />
     <Content Include="views\sevaT.tpl" />
     <Content Include="views\about.tpl" />
     <Content Include="views\contact.tpl" />
     <Content Include="views\index.tpl" />
     <Content Include="views\layout.tpl" />
+    <Content Include="views\petyaT.tpl" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env1\">

@@ -53,3 +53,23 @@ def about():
         message='Your application description page.',
         year=datetime.now().year
     )
+
+@route('/petyaP')
+@view('petyaP')
+def about():
+    """Renders the about page."""
+    return dict(
+        title='Теория',
+        message='Подробный разбор симплекс-метода.',
+        year=datetime.now().year
+    )
+
+@route('/petyaT')
+@view('petyaT')
+def about():
+    """Renders the about page."""
+    return dict(
+        title='Практика',
+        message='Решение прямых ЗЛП.',
+        year=datetime.now().year
+    )
