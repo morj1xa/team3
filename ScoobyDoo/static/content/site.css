@@ -454,8 +454,43 @@ input[type="checkbox"].input-validation-error {
         background-color: #376466;
     }
 
+/* Стилизация большого контейнера */
+.button-container-big-gun {
+    position: relative;
+    padding: 30px;
+}
+
+/* Стилизация кнопки */
+.btn-big-gun {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #74C8CB;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    /* Стилизация кнопки при наведении */
+    .btn-big-gun:hover {
+        background-color: #376466;
+    }
+
+/*.table {
+    border-collapse: collapse;
+    max-width: 100px;
+    max-height: 100px;
+    table-layout: fixed;
+}
+    .table td, .table th {
+        padding: 1px; //Измените значение по вашему усмотрению
+        border: 1px solid black;
+    }*/
+
 .seva-pract-window {
-    
     width: 1440px;
     height: 982px;
 }

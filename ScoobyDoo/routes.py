@@ -61,6 +61,12 @@ def about():
     return dict(
         title='Практика',
         message='Решение прямых ЗЛП.',
+        writeCount1='Число переменных = ',
+        writeCount2='Число ограничений = ',
+        textButton1='Ввести размеры матрицы',
+        textButton2='Получить исходное опорное решение',
+        writeTable1='Введите коэффициенты целевой функции: F = ',
+        writeTable2='Введите коэффициенты системы ограничений',
         year=datetime.now().year
     )
 

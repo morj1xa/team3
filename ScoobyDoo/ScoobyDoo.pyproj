@@ -48,6 +48,7 @@
     <Content Include="static\assets\images\1_1.png" />
     <Content Include="static\assets\images\1_2.png" />
     <Content Include="static\assets\images\1_3.png" />
+    <Content Include="static\assets\images\i.png" />
     <Content Include="static\assets\images\petyapfp.jpg" />
     <Content Include="static\assets\images\sevapfp.jpg" />
     <Content Include="static\assets\images\temapfp.jpg" />
