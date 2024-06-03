@@ -185,6 +185,13 @@ input[type="checkbox"].input-validation-error {
     margin-bottom: 15px;
 }
 
+.theory-petya-h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #FAEFEB;
+    padding-bottom: 10px;
+}
+
 .seva-t {
     background: #30393E;
     display: flex;
@@ -227,6 +234,16 @@ input[type="checkbox"].input-validation-error {
         color: #FAEFEB;
         text-align: center;
         margin-bottom:50px;
+    }
+
+    .seva-t .theory2 {
+        position: relative;
+        overflow-wrap: break-word;
+        font-weight: 600;
+        font-size: 128px;
+        color: #FAEFEB;
+        text-align: center;
+        margin-bottom: 5px;
     }
 
     .seva-t .vector-3 {
@@ -457,7 +474,7 @@ input[type="checkbox"].input-validation-error {
 /* Стилизация большого контейнера */
 .button-container-big-gun {
     position: relative;
-    padding: 30px;
+    padding: 10px;
 }
 
 /* Стилизация кнопки */
@@ -479,16 +496,19 @@ input[type="checkbox"].input-validation-error {
         background-color: #376466;
     }
 
-/*.table {
-    border-collapse: collapse;
-    max-width: 100px;
-    max-height: 100px;
-    table-layout: fixed;
+.table-container1 {
+    max-width: 100%; /* Максимальная ширина контейнера */
+    overflow-x: auto; /* Горизонтальный скролл, если содержимое не помещается */
 }
-    .table td, .table th {
-        padding: 1px; //Измените значение по вашему усмотрению
-        border: 1px solid black;
-    }*/
+
+table {
+    width: 90%; /* Занимает всю доступную ширину контейнера */
+    table-layout: fixed; /* Фиксированная ширина ячеек */
+}
+
+    table th {
+        background-color: lightgray; /* Цвет фона для заголовков */
+    }
 
 .seva-pract-window {
     width: 1440px;
