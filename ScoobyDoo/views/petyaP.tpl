@@ -9,6 +9,21 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
+    <style>
+        .table-container {
+            max-width: 100%; /* Максимальная ширина контейнера */
+            overflow-x: auto; /* Горизонтальный скролл, если содержимое не помещается */
+        }
+        
+        table {
+            width: 90%; /* Занимает всю доступную ширину контейнера */
+            table-layout: fixed; /* Фиксированная ширина ячеек */
+        }  
+
+        table th {
+            background-color: lightgray; /* Цвет фона для заголовков */
+        }
+    </style>
     
 
 <div class="seva-t">
@@ -40,31 +55,36 @@
                 <div id="table-container"></div> <!-- контейнер для таблицы -->
             </html>
         </div>
-    <script> 
-        document.querySelector('.btn-big-gun').addEventListener('click', function() { 
-            var variablesValue = document.getElementById('variables').value; 
-            var tableHTML = '<table border="1">';
+
+        <script> 
+            document.querySelector('.btn-big-gun').addEventListener('click', function() { 
+                var variablesValue = document.getElementById('variables').value; 
+                var tableHTML = '<table border="1">';
             
-            for (var i = 0; i < 1; i++) { // Создаем одну строку
-                tableHTML += '<tr>'; 
-                for (var j = 0; j < variablesValue; j++) { 
-                    tableHTML += '<td><input type="text"></td>'; 
+                tableHTML += '<tr>'; // Создаем первую строку с заголовками
+                for (var j = 1; j <= variablesValue; j++) { 
+                    tableHTML += '<th>x' + j + '</th>'; // Создаем заголовки x1, x2, ..., xn
                 } 
-                tableHTML += '</tr>'; 
-            }
+                tableHTML += '</tr>';
+            
+                tableHTML += '<tr>'; // Создаем вторую строку с пустыми ячейками для ввода
+                for (var k = 0; k < variablesValue; k++) { 
+                    tableHTML += '<td><input type="text"></td>'; // Создаем пустые ячейки для ввода
+                } 
+                tableHTML += '</tr>';
              
-            tableHTML += '</table>'; 
+                tableHTML += '</table>'; 
             
-            // Удаляем старую таблицу, если она существует
-            var tableContainer = document.getElementById('table-container');
-            if (tableContainer.firstChild) {
-                tableContainer.removeChild(tableContainer.firstChild);
-            }
+                // Удаляем старую таблицу, если она существует
+                var tableContainer = document.getElementById('table-container');
+                if (tableContainer.firstChild) {
+                    tableContainer.removeChild(tableContainer.firstChild);
+                }
             
-            // Добавляем новую таблицу
-            tableContainer.insertAdjacentHTML('beforeend', tableHTML);
-        }); 
-    </script>
+                // Добавляем новую таблицу
+                tableContainer.insertAdjacentHTML('beforeend', tableHTML);
+            }); 
+        </script>
     </body>
 </div>
 
