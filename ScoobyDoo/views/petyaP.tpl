@@ -55,8 +55,22 @@
 
         <script> 
             function sizeClick() {
+                var variablesValue = document.getElementById('variables').value;
+                var restrictionsValue = document.getElementById('restrictions').value; 
+
+                // Проверка на ввод числа от 0 до 30
+                if (variablesValue < 0 || variablesValue >= 30 || isNaN(variablesValue)) {
+                    alert("{{ warning1 }}");
+                    return false;
+                }
+
+                // Проверка на ввод числа от 0 до 15
+                if (restrictionsValue < 0 || restrictionsValue >= 15 || isNaN(restrictionsValue)) {
+                    alert("{{ warning2 }}");
+                    return false;
+                }
+
                 //первая таблица
-                var variablesValue = document.getElementById('variables').value; 
                 var tableHTML = '<table border="1">';
             
                 tableHTML += '<tr>'; // Создаем первую строку с заголовками
@@ -83,9 +97,7 @@
                 tableContainer.insertAdjacentHTML('beforeend', tableHTML);
 
 
-                //вторая таблица
-                var variablesValue = document.getElementById('variables').value;
-                var restrictionsValue = document.getElementById('restrictions').value;
+                //вторая таблица 
                 var tableHTML = '<table border="1">';
 
                 // Создаем заголовки для столбцов
@@ -118,8 +130,10 @@
 
                 // Добавляем новую таблицу
                 tableContainer.insertAdjacentHTML('beforeend', tableHTML);
+                return true;
             }
         </script>
+
         <script> 
             function updateClick() {
 
