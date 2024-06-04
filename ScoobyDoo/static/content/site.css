@@ -484,7 +484,7 @@ input[type="checkbox"].input-validation-error {
     border-radius: 5px;
     background-color: #74C8CB;
     color: #fff;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
@@ -507,7 +507,7 @@ table {
 }
 
     table th {
-        background-color: lightgray; /* Цвет фона для заголовков */
+        background-color: #74C8CB; /* Цвет фона для заголовков */
     }
 
 .seva-pract-window {

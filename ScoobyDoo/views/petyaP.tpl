@@ -25,16 +25,16 @@
                 <h1 class="theory-petya-h1"><center>{{ message }}</center></h1>
                 <div class="input-container input-floating"><center>
                     <h2 class="theory-seva-h2">{{writeCount1}}</h2>
-                    <input type="text" class="input-field" placeholder="" id="variables" name="variables" required>
+                    <input type="text" class="input-field" style="max-width: 80px; font-size: 20px; text-align: center; font-weight: bold;" placeholder="" id="variables" name="variables" required>
                 </center></div>
 
                 <div class="input-container input-floating"><center>
                     <h2 class="theory-seva-h2">{{writeCount2}}</h2>
-                    <input type="text" class="input-field" placeholder="" id="restrictions" name="restrictions" required>    
+                    <input type="text" class="input-field" style="max-width: 80px; font-size: 20px; text-align: center; font-weight: bold;" placeholder="" id="restrictions" name="restrictions" required>    
                 </center></div>
 
                 <div class="button-container-big-gun"><center>
-                      <button class="btn-big-gun">{{textButton1}}</button>
+                      <button class="btn-big-gun" onClick="sizeClick()">{{textButton1}}</button>
                 </center></div>
 
                 <h2 class="theory-seva-h2">{{writeTable1}}</h2>
@@ -43,17 +43,19 @@
 
                 <h2 class="theory-seva-h2">{{writeTable2}}</h2>
 
-                <div id="table-container2"></div> <!-- контейнер для таблицы -->
+                <div id="table-container2"><center></center></div> <!-- контейнер для таблицы -->
 
                 <div class="button-container-big-gun"><center>
-                      <button class="btn-big-gun">{{textButton2}}</button>
+                      <button class="btn-big-gun" onClick="updateClick()">{{textButton2}}</button>
                 </center></div>
+
+                <h2 class="theory-seva-h2">{{writeTable3}}</h2>
             </html>
         </div>
 
         <script> 
-        //первая таблица
-            document.querySelector('.btn-big-gun').addEventListener('click', function() { 
+            function sizeClick() {
+                //первая таблица
                 var variablesValue = document.getElementById('variables').value; 
                 var tableHTML = '<table border="1">';
             
@@ -65,7 +67,7 @@
             
                 tableHTML += '<tr>'; // Создаем вторую строку с пустыми ячейками для ввода
                 for (var k = 0; k < variablesValue; k++) { 
-                    tableHTML += '<td><input type="text"></td>'; // Создаем пустые ячейки для ввода
+                    tableHTML += '<td><input type="text"  style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>'; // Создаем пустые ячейки для ввода
                 } 
                 tableHTML += '</tr>';
              
@@ -79,12 +81,9 @@
             
                 // Добавляем новую таблицу
                 tableContainer.insertAdjacentHTML('beforeend', tableHTML);
-            }); 
-        </script>
-        
-        <script>
-        //вторая таблица
-            document.querySelector('.btn-big-gun').addEventListener('click', function() {
+
+
+                //вторая таблица
                 var variablesValue = document.getElementById('variables').value;
                 var restrictionsValue = document.getElementById('restrictions').value;
                 var tableHTML = '<table border="1">';
@@ -95,6 +94,7 @@
                 for (var j = 1; j <= variablesValue; j++) {
                     tableHTML += '<th>x' + j + '</th>'; // Создаем заголовки x1, x2, ..., xn
                 }
+                tableHTML += '<th>b</th>'; // Добавляем заголовок для столбца b
                 tableHTML += '</tr>';
 
                 // Создаем строки с заголовками для строк
@@ -102,8 +102,9 @@
                     tableHTML += '<tr>';
                     tableHTML += '<th>' + i + '</th>'; // Создаем заголовки 1, 2, ..., n для строк
                     for (var k = 0; k < variablesValue; k++) {
-                        tableHTML += '<td><input type="text"></td>'; // Создаем пустые ячейки для ввода
+                        tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>'; // Создаем пустые ячейки для ввода
                     }
+                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>'; // Добавляем ячейку для ввода b
                     tableHTML += '</tr>';
                 }
 
@@ -117,7 +118,12 @@
 
                 // Добавляем новую таблицу
                 tableContainer.insertAdjacentHTML('beforeend', tableHTML);
-            });
+            }
+        </script>
+        <script> 
+            function updateClick() {
+
+            }
         </script>
     </body>
 </div>
