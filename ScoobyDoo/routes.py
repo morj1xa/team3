@@ -2,8 +2,12 @@
 Routes and views for the bottle application.
 """
 
-from bottle import route, view
+from xml.etree.ElementTree import tostring
+from bottle import route, view, request, template
 from datetime import datetime
+from scipy.optimize import linprog
+import numpy as np
+from solution import solve_lp
 
 @route('/')
 @route('/home')
@@ -34,14 +38,21 @@ def about():
         year=datetime.now().year
     )
 
-@route('/sevaP')
+@route('/sevaPF', method=['GET', 'POST'])
 @view('sevaP')
-def about():
+def sevaPr():
     """Renders the about page."""
+    solution = 'No solution found.'
+    debug_info = ''
+    if request.method == 'POST':
+        result, debug_info = solve_lp(request)
+        solution = result.get('solution', 'No solution found.')
+    
     return dict(
         title='SevaP',
-        message='Your application description page.',
-        year=datetime.now().year
+        year=datetime.now().year,
+        solution=solution,
+        debug_info=debug_info
     )
 
 @route('/sevaT')

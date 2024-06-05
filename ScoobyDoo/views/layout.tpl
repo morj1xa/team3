@@ -23,7 +23,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/sevaT">SevaT</a></li>
-                    <li><a href="/sevaP">SevaP</a></li>
+                    <li><a href="/sevaPF">SevaP</a></li>
                     <li><a href="/petyaT">PetyaT</a></li>
                     <li><a href="/petyaP">PetyaP</a></li>
                     <li><a href="/home">Home</a></li>
