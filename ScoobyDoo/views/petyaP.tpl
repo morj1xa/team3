@@ -62,9 +62,11 @@
         </div>
 
         <script> 
+            var a = [];
+
             function sizeClick() {
-                var variablesValue = document.getElementById('variables').value;
-                var restrictionsValue = document.getElementById('restrictions').value; 
+                var variablesValue = parseInt(document.getElementById('variables').value);
+                var restrictionsValue = parseInt(document.getElementById('restrictions').value);
 
                 // Проверка на ввод числа от 0 до 30
                 if (variablesValue < 0 || variablesValue >= 30 || isNaN(variablesValue)) {
@@ -77,78 +79,66 @@
                     alert("{{ warning2 }}");
                     return false;
                 }
-                document.getElementById("textTable1").getElementsByTagName("h2")[0].textContent = "{{writeTable1}}"; // Обновляем содержимое <h2> элемента
-                document.getElementById("textTable2").getElementsByTagName("h2")[0].textContent = "{{writeTable2}}"; // Обновляем содержимое <h2> элемента
 
-                //первая таблица
+                document.getElementById("textTable1").getElementsByTagName("h2")[0].textContent = "{{writeTable1}}";
+                document.getElementById("textTable2").getElementsByTagName("h2")[0].textContent = "{{writeTable2}}";
+
+                // Первая таблица
                 var tableHTML = '<table border="1">';
-            
-                tableHTML += '<tr>'; // Создаем первую строку с заголовками
-                for (var j = 1; j <= variablesValue; j++) { 
-                    tableHTML += '<th>x' + j + '</th>'; // Создаем заголовки x1, x2, ..., xn
-                } 
+                tableHTML += '<tr>';
+                for (var j = 1; j <= variablesValue; j++) {
+                    tableHTML += '<th>x' + j + '</th>';
+                }
                 tableHTML += '</tr>';
-            
-                tableHTML += '<tr>'; // Создаем вторую строку с пустыми ячейками для ввода
-                for (var k = 0; k < variablesValue; k++) { 
-                    tableHTML += '<td><input type="text"  style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>'; // Создаем пустые ячейки для ввода
-                } 
+                tableHTML += '<tr>';
+                for (var k = 0; k < variablesValue; k++) {
+                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>';
+                }
                 tableHTML += '</tr>';
-             
-                tableHTML += '</table>'; 
-            
-                // Удаляем старую таблицу, если она существует
+                tableHTML += '</table>';
+
                 var tableContainer = document.getElementById('table-container1');
                 if (tableContainer.firstChild) {
                     tableContainer.removeChild(tableContainer.firstChild);
                 }
-            
-                // Добавляем новую таблицу
                 tableContainer.insertAdjacentHTML('beforeend', tableHTML);
 
-
-                //вторая таблица 
-                var tableHTML = '<table border="1">';
-
-                // Создаем заголовки для столбцов
+                // Вторая таблица
+                tableHTML = '<table border="1">';
                 tableHTML += '<tr>';
-                tableHTML += '<th></th>'; // Пустая ячейка в верхнем левом углу
+                tableHTML += '<th></th>';
                 for (var j = 1; j <= variablesValue; j++) {
-                    tableHTML += '<th>x' + j + '</th>'; // Создаем заголовки x1, x2, ..., xn
+                    tableHTML += '<th>x' + j + '</th>';
                 }
-                tableHTML += '<th>b</th>'; // Добавляем заголовок для столбца b
+                tableHTML += '<th>b</th>';
                 tableHTML += '</tr>';
-
-                // Создаем строки с заголовками для строк
                 for (var i = 1; i <= restrictionsValue; i++) {
                     tableHTML += '<tr>';
-                    tableHTML += '<th>' + i + '</th>'; // Создаем заголовки 1, 2, ..., n для строк
+                    tableHTML += '<th>' + i + '</th>';
                     for (var k = 0; k < variablesValue; k++) {
-                        tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>'; // Создаем пустые ячейки для ввода
+                        tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>';
                     }
-                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>'; // Добавляем ячейку для ввода b
+                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;"></td>';
                     tableHTML += '</tr>';
                 }
-
                 tableHTML += '</table>';
 
-                // Удаляем старую таблицу, если она существует
-                var tableContainer = document.getElementById('table-container2');
+                tableContainer = document.getElementById('table-container2');
                 if (tableContainer.firstChild) {
                     tableContainer.removeChild(tableContainer.firstChild);
                 }
-
-                // Добавляем новую таблицу
                 tableContainer.insertAdjacentHTML('beforeend', tableHTML);
+
+                // Инициализация матрицы a
+                a = new Array(restrictionsValue).fill().map(() => new Array(variablesValue + 1).fill(0));
+
                 return true;
             }
-        </script>
 
-        <script> 
             function updateClick() {
-                var variablesValue = document.getElementById('variables').value;
-                var restrictionsValue = document.getElementById('restrictions').value; 
-                //СОВСЕМ ДРУГИЕ УСЛОВИЯ
+                var variablesValue = parseInt(document.getElementById('variables').value);
+                var restrictionsValue = parseInt(document.getElementById('restrictions').value);
+
                 // Проверка на ввод числа от 0 до 30
                 if (variablesValue < 0 || variablesValue >= 30 || isNaN(variablesValue)) {
                     alert("{{ warning1 }}");
@@ -161,55 +151,77 @@
                     return false;
                 }
 
-                document.getElementById("textTable3").getElementsByTagName("h2")[0].textContent = "{{writeTable3}}"; // Обновляем содержимое <h2> элемента
-                //третья таблица 
-                var tableHTML = '<table border="1">';
+                document.getElementById("textTable3").getElementsByTagName("h2")[0].textContent = "{{writeTable3}}";
 
-                // Создаем заголовки для столбцов
-                tableHTML += '<tr>';
-                tableHTML += '<th>Basis</th>'; // Пустая ячейка в верхнем левом углу
-
-                tableHTML += '<th>BP</th>'; // Добавляем заголовок для столбца БП
-
-                for (var j = 1; j <= variablesValue; j++) {
-                    tableHTML += '<th>x' + j + '</th>'; // Создаем заголовки x1, x2, ..., xn
+                // Считывание значений из первой таблицы
+                var table1 = document.getElementById('table-container1').getElementsByTagName('table')[0];
+                var row1 = table1.getElementsByTagName('tr')[1];
+                var inputs1 = row1.getElementsByTagName('input');
+                var mas = [];
+                for (var i = 0; i < inputs1.length; i++) {
+                    mas.push(parseFloat(inputs1[i].value) || 0);
                 }
-                tableHTML += '</tr>';
 
-                // Создаем строки с заголовками для строк
-                tableHTML += '<tr>';
-                tableHTML += '<th>F</th>'; // Добавляем заголовок для строки F
-                for (var k = 0; k < variablesValue; k++) {
-                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" readonly></td>'; // Создаем пустые ячейки для ввода
-                }
-                tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" readonly></td>'; // Создаем пустые ячейки для ввода
-                tableHTML += '</tr>';
-                for (var i = 1; i <= restrictionsValue; i++) {
-                    tableHTML += '<tr>';
-                    tableHTML += '<th>x' + (9+i) + '</th>'; // Создаем заголовки 1, 2, ..., n для строк
-                    for (var k = 0; k < variablesValue; k++) {
-                        tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" readonly></td>'; // Создаем пустые ячейки для ввода
+                // Считывание значений из второй таблицы
+                var table2 = document.getElementById('table-container2').getElementsByTagName('table')[0];
+                var rows2 = table2.getElementsByTagName('tr');
+                for (var i = 1; i < rows2.length; i++) { // начинаем с 1, чтобы пропустить заголовок
+                    var inputs2 = rows2[i].getElementsByTagName('input');
+                    for (var j = 0; j < inputs2.length; j++) {
+                        a[i - 1][j] = parseFloat(inputs2[j].value) || 0;
                     }
-                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" readonly></td>'; // Добавляем ячейку для ввода БП
+                }
+
+                // Третья таблица
+                var tableHTML = '<table border="1">';
+                tableHTML += '<tr>';
+                tableHTML += '<th>Basis</th>';
+                tableHTML += '<th>BP</th>';
+                for (var j = 1; j <= variablesValue; j++) {
+                    tableHTML += '<th>x' + (variablesValue + j) + '</th>';
+                }
+                tableHTML += '</tr>';
+
+                // Первая строка с F
+                tableHTML += '<tr>';
+                tableHTML += '<th>F</th>';
+                tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" value="' + 0 + '" readonly></td>';
+                for (var j = 0; j < variablesValue; j++) {
+                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" value="' + (mas[j] * -1).toFixed(2) + '" readonly></td>';
+                }
+                tableHTML += '</tr>';
+
+                // Остальные строки
+                for (var i = 0; i < restrictionsValue; i++) {
+                    tableHTML += '<tr>';
+                    tableHTML += '<th>x' + (variablesValue + i + 1) + '</th>'; // Заголовки строк
+                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" value="' + a[i][variablesValue].toFixed(2) + '" readonly></td>'; // Столбец BP
+                    for (var j = 0; j < variablesValue; j++) {
+                        tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" value="' + a[i][j].toFixed(2) + '" readonly></td>';
+                    }
                     tableHTML += '</tr>';
                 }
-
                 tableHTML += '</table>';
 
-                // Удаляем старую таблицу, если она существует
                 var tableContainer = document.getElementById('table-container3');
                 if (tableContainer.firstChild) {
                     tableContainer.removeChild(tableContainer.firstChild);
                 }
-
-                // Добавляем новую таблицу
                 tableContainer.insertAdjacentHTML('beforeend', tableHTML);
+
+                var count = 0; // Инициализация переменной count
+                var stepText = "{{stepText}}"; // Инициализация переменной step
+                var step = stepText + count; // Инициализация переменной step
+
+                step = stepText + count; // Добавляем текущее значение count к строке step
+                count++;
+                document.getElementById("stepHeader").getElementsByTagName("h2")[0].textContent = step; // Обновляем содержимое <h2> элемента
                 return true;
             }
         </script>
 
         <script>
-            var count = 0; // Инициализация переменной count
+            var count = 1; // Инициализация переменной count
             var stepText = "{{stepText}}"; // Инициализация переменной step
             var step = stepText + count; // Инициализация переменной step
             
