@@ -185,6 +185,13 @@ input[type="checkbox"].input-validation-error {
     margin-bottom: 15px;
 }
 
+.theory-petya-h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #FAEFEB;
+    padding-bottom: 10px;
+}
+
 .seva-t {
     background: #30393E;
     display: flex;
@@ -229,6 +236,16 @@ input[type="checkbox"].input-validation-error {
         margin-bottom:50px;
     }
 
+    .seva-t .theory2 {
+        position: relative;
+        overflow-wrap: break-word;
+        font-weight: 600;
+        font-size: 128px;
+        color: #FAEFEB;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
     .seva-t .vector-3 {
         position: absolute;
         top: -112px;
@@ -250,6 +267,75 @@ input[type="checkbox"].input-validation-error {
         translate: -50% 0;
         width: 1168px;
         height: 1368px;
+        flex-direction: column;
+        display: flex;
+    }
+
+
+.petya-t {
+    background: #30393E;
+    display: flex;
+    padding-bottom: 109px;
+    width: 1440px;
+    height: 5200px;
+    box-sizing: border-box;
+}
+
+    .petya-t .group-2 {
+        position: relative;
+        display: flex;
+        padding: 91.9px 0 0 30.5px;
+        width: 1440px;
+        height: 1939px;
+        box-sizing: border-box;
+    }
+
+    .petya-t .vector-4 {
+        position: absolute;
+        top: 517px;
+        right: -110.5px;
+        width: 755.8px;
+        height: 460.7px;
+    }
+
+    .petya-t .vector-2 {
+        position: absolute;
+        left: -120px;
+        top: -112px;
+        width: 480.2px;
+        height: 623.6px;
+    }
+
+    .petya-t .theory {
+        position: relative;
+        overflow-wrap: break-word;
+        font-weight: 600;
+        font-size: 128px;
+        color: #FAEFEB;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .petya-t .vector-3 {
+        position: absolute;
+        top: -112px;
+        right: -190px;
+        width: 389px;
+        height: 529px;
+    }
+
+    .petya-t .rectangle-2 {
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(7.5px);
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        left: 50%;
+        padding: 20px;
+        top: 87px;
+        translate: -50% 0;
+        width: 1168px;
+        height: 4820px;
         flex-direction: column;
         display: flex;
     }
@@ -385,8 +471,46 @@ input[type="checkbox"].input-validation-error {
         background-color: #376466;
     }
 
+/* Стилизация большого контейнера */
+.button-container-big-gun {
+    position: relative;
+    padding: 10px;
+}
+
+/* Стилизация кнопки */
+.btn-big-gun {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #74C8CB;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    /* Стилизация кнопки при наведении */
+    .btn-big-gun:hover {
+        background-color: #376466;
+    }
+
+.table-container1 {
+    max-width: 100%; /* Максимальная ширина контейнера */
+    overflow-x: auto; /* Горизонтальный скролл, если содержимое не помещается */
+}
+
+table {
+    width: 90%; /* Занимает всю доступную ширину контейнера */
+    table-layout: fixed; /* Фиксированная ширина ячеек */
+}
+
+    table th {
+        background-color: #74C8CB; /* Цвет фона для заголовков */
+    }
+
 .seva-pract-window {
-    
     width: 1440px;
     height: 982px;
 }

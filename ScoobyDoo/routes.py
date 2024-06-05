@@ -70,8 +70,18 @@ def about():
 def about():
     """Renders the about page."""
     return dict(
-        title='Теория',
-        message='Подробный разбор симплекс-метода.',
+        title='Практика',
+        message='Решение прямых ЗЛП.',
+        writeCount1='Число переменных = ',
+        writeCount2='Число ограничений = ',
+        textButton1='Ввести размеры матрицы',
+        textButton2='Получить исходное опорное решение',
+        writeTable1='Введите коэффициенты целевой функции: F = ',
+        writeTable2='Введите коэффициенты системы ограничений:',
+        writeTable3='Улучшение опорного решения:',
+        warning1='Введите корректно цифру от 1 до 30 для кол-во переменных.',
+        warning2='Введите корректно цифру от 1 до 15 для кол-во ограничений.',
+
         year=datetime.now().year
     )
 
@@ -80,7 +90,7 @@ def about():
 def about():
     """Renders the about page."""
     return dict(
-        title='Практика',
-        message='Решение прямых ЗЛП.',
+        title='Теория',
+        message='Подробный разбор симплекс-метода.',
         year=datetime.now().year
     )
