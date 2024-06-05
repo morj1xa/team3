@@ -11,7 +11,7 @@
     </script>
 
 
-<div class="seva-t">
+<div class="petya-p">
     <img class="vector-4" src="/static/assets/vectors/vector_1_x2.svg" />
     <img class="vector-2" src="/static/assets/vectors/vector_2_x2.svg" />
     <img class="vector-3" src="/static/assets/vectors/vector_3_x2.svg" />
@@ -37,19 +37,27 @@
                       <button class="btn-big-gun" onClick="sizeClick()">{{textButton1}}</button>
                 </center></div>
 
-                <h2 class="theory-seva-h2">{{writeTable1}}</h2>
+                <div id="textTable1"><h2 class="theory-seva-h2"></h2></div>
 
-                <div id="table-container1"></div> <!-- контейнер для таблицы -->
+                <center><div id="table-container1"></div></center> <!-- контейнер для таблицы -->
 
-                <h2 class="theory-seva-h2">{{writeTable2}}</h2>
+                <div id="textTable2"><h2 class="theory-seva-h2"></h2></div>
 
-                <div id="table-container2"><center></center></div> <!-- контейнер для таблицы -->
+                <center><div id="table-container2"></div></center> <!-- контейнер для таблицы -->
 
                 <div class="button-container-big-gun"><center>
                       <button class="btn-big-gun" onClick="updateClick()">{{textButton2}}</button>
                 </center></div>
 
-                <h2 class="theory-seva-h2">{{writeTable3}}</h2>
+                <div id="textTable3"><h2 class="theory-seva-h2"></h2></div>
+
+                <center><div id="table-container3"></div></center> <!-- контейнер для таблицы -->
+
+                <div class="button-container-big-gun">
+                      <button class="btn-big-gun" onClick="nextSolution()">{{textButton3}}</button>
+                </div>
+
+                <div id="stepHeader"><h2 class="theory-seva-h2"></h2></div>
             </html>
         </div>
 
@@ -69,6 +77,8 @@
                     alert("{{ warning2 }}");
                     return false;
                 }
+                document.getElementById("textTable1").getElementsByTagName("h2")[0].textContent = "{{writeTable1}}"; // Обновляем содержимое <h2> элемента
+                document.getElementById("textTable2").getElementsByTagName("h2")[0].textContent = "{{writeTable2}}"; // Обновляем содержимое <h2> элемента
 
                 //первая таблица
                 var tableHTML = '<table border="1">';
@@ -136,8 +146,87 @@
 
         <script> 
             function updateClick() {
+                var variablesValue = document.getElementById('variables').value;
+                var restrictionsValue = document.getElementById('restrictions').value; 
+                //СОВСЕМ ДРУГИЕ УСЛОВИЯ
+                // Проверка на ввод числа от 0 до 30
+                if (variablesValue < 0 || variablesValue >= 30 || isNaN(variablesValue)) {
+                    alert("{{ warning1 }}");
+                    return false;
+                }
 
+                // Проверка на ввод числа от 0 до 15
+                if (restrictionsValue < 0 || restrictionsValue >= 15 || isNaN(restrictionsValue)) {
+                    alert("{{ warning2 }}");
+                    return false;
+                }
+
+                document.getElementById("textTable3").getElementsByTagName("h2")[0].textContent = "{{writeTable3}}"; // Обновляем содержимое <h2> элемента
+                //третья таблица 
+                var tableHTML = '<table border="1">';
+
+                // Создаем заголовки для столбцов
+                tableHTML += '<tr>';
+                tableHTML += '<th>Basis</th>'; // Пустая ячейка в верхнем левом углу
+
+                tableHTML += '<th>BP</th>'; // Добавляем заголовок для столбца БП
+
+                for (var j = 1; j <= variablesValue; j++) {
+                    tableHTML += '<th>x' + j + '</th>'; // Создаем заголовки x1, x2, ..., xn
+                }
+                tableHTML += '</tr>';
+
+                // Создаем строки с заголовками для строк
+                tableHTML += '<tr>';
+                tableHTML += '<th>F</th>'; // Добавляем заголовок для строки F
+                for (var k = 0; k < variablesValue; k++) {
+                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" readonly></td>'; // Создаем пустые ячейки для ввода
+                }
+                tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" readonly></td>'; // Создаем пустые ячейки для ввода
+                tableHTML += '</tr>';
+                for (var i = 1; i <= restrictionsValue; i++) {
+                    tableHTML += '<tr>';
+                    tableHTML += '<th>x' + (9+i) + '</th>'; // Создаем заголовки 1, 2, ..., n для строк
+                    for (var k = 0; k < variablesValue; k++) {
+                        tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" readonly></td>'; // Создаем пустые ячейки для ввода
+                    }
+                    tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" readonly></td>'; // Добавляем ячейку для ввода БП
+                    tableHTML += '</tr>';
+                }
+
+                tableHTML += '</table>';
+
+                // Удаляем старую таблицу, если она существует
+                var tableContainer = document.getElementById('table-container3');
+                if (tableContainer.firstChild) {
+                    tableContainer.removeChild(tableContainer.firstChild);
+                }
+
+                // Добавляем новую таблицу
+                tableContainer.insertAdjacentHTML('beforeend', tableHTML);
+                return true;
             }
+        </script>
+
+        <script>
+            var count = 0; // Инициализация переменной count
+            var stepText = "{{stepText}}"; // Инициализация переменной step
+            var step = stepText + count; // Инициализация переменной step
+            
+            var findText = "{{findSolution}}";
+            var solution = 123;
+            var solution = findText + solution; // Инициализация переменной step
+
+
+
+            function nextSolution() {
+                if (count < 9) {
+                    step = stepText + count; // Добавляем текущее значение count к строке step
+                    count++;
+                    document.getElementById("stepHeader").getElementsByTagName("h2")[0].textContent = step; // Обновляем содержимое <h2> элемента
+                }
+                else document.getElementById("stepHeader").getElementsByTagName("h2")[0].textContent = solution;
+            }           
         </script>
     </body>
 </div>

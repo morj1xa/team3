@@ -7,7 +7,6 @@ from bottle import route, view, request, template
 from datetime import datetime
 from scipy.optimize import linprog
 import numpy as np
-from solution import solve_lp
 
 @route('/')
 @route('/home')
@@ -76,12 +75,14 @@ def about():
         writeCount2='Число ограничений = ',
         textButton1='Ввести размеры матрицы',
         textButton2='Получить исходное опорное решение',
+        textButton3='Следующее решение',
         writeTable1='Введите коэффициенты целевой функции: F = ',
         writeTable2='Введите коэффициенты системы ограничений:',
         writeTable3='Улучшение опорного решения:',
         warning1='Введите корректно цифру от 1 до 30 для кол-во переменных.',
         warning2='Введите корректно цифру от 1 до 15 для кол-во ограничений.',
-
+        stepText='Шаг № ',
+        findSolution='Оптимальное решение найдено: ',
         year=datetime.now().year
     )
 
