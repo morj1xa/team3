@@ -178,7 +178,7 @@
                 tableHTML += '<th>Basis</th>';
                 tableHTML += '<th>BP</th>';
                 for (var j = 1; j <= variablesValue; j++) {
-                    tableHTML += '<th>x' + (variablesValue + j) + '</th>';
+                    tableHTML += '<th>x' + j + '</th>';
                 }
                 tableHTML += '</tr>';
 
@@ -194,7 +194,7 @@
                 // Остальные строки
                 for (var i = 0; i < restrictionsValue; i++) {
                     tableHTML += '<tr>';
-                    tableHTML += '<th>x' + (variablesValue + i + 1) + '</th>'; // Заголовки строк
+                    tableHTML += '<th>x' + (i + 10) + '</th>'; // Заголовки строк
                     tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" value="' + a[i][variablesValue].toFixed(2) + '" readonly></td>'; // Столбец BP
                     for (var j = 0; j < variablesValue; j++) {
                         tableHTML += '<td><input type="text" style="width: 100%; font-size: 16px; text-align: center; font-weight: bold;" value="' + a[i][j].toFixed(2) + '" readonly></td>';
@@ -228,8 +228,6 @@
             var findText = "{{findSolution}}";
             var solution = 123;
             var solution = findText + solution; // Инициализация переменной step
-
-
 
             function nextSolution() {
                 if (count < 9) {
