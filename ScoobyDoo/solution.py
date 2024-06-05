@@ -10,17 +10,17 @@ import sympy as sp
 def solve_lp(request):
     debug_info = 'start otlad<br>'
     try:
-        # Получаем данные из формы
+        # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         objective_function = request.forms.get('function')
         constraints = request.forms.get('constraints').strip().split(',')
         variables = request.forms.get('variables').strip().split(',')
         
-        # Отладочная информация
+        # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         debug_info += f"get func: {objective_function}<br>"
         debug_info += f"get ogr: {constraints}<br>"
         debug_info += f"get per: {variables}<br>"
 
-        # Решаем задачу линейного программирования
+        # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         result, more_debug_info = solve_linear_programming(objective_function, constraints, variables)
         debug_info += more_debug_info
         return result, debug_info
