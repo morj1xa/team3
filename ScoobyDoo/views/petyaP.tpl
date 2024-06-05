@@ -224,18 +224,21 @@
             var count = 1; // Инициализация переменной count
             var stepText = "{{stepText}}"; // Инициализация переменной step
             var step = stepText + count; // Инициализация переменной step
-            
-            var findText = "{{findSolution}}";
-            var solution = 123;
-            var solution = findText + solution; // Инициализация переменной step
 
             function nextSolution() {
+                var table3 = document.getElementById('table-container3').getElementsByTagName('table')[0];
+                var row3 = table3.getElementsByTagName('tr')[1]; // Получаем первую строку таблицы (индекс 1)
+                var cells = row3.getElementsByTagName('td'); // Получаем все ячейки строки
+                var fValue = cells[0].getElementsByTagName('input')[0].value.trim(); // Значение в ячейке под шапкой "F"
+                var solutionText = "{{findSolution}}" + fValue; // Строка с решением
+
                 if (count < 9) {
                     step = stepText + count; // Добавляем текущее значение count к строке step
                     count++;
                     document.getElementById("stepHeader").getElementsByTagName("h2")[0].textContent = step; // Обновляем содержимое <h2> элемента
                 }
-                else document.getElementById("stepHeader").getElementsByTagName("h2")[0].textContent = solution;
+                else document.getElementById("stepHeader").getElementsByTagName("h2")[0].textContent = solutionText;
+                console.log(solutionText);
             }           
         </script>
     </body>
