@@ -9,7 +9,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/scipy/dist/scipy.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/scipy/"></script>
 
 
 
@@ -59,12 +59,16 @@
                       <button class="btn-big-gun" onClick="nextSolution()">{{textButton3}}</button>
                 </div>
 
+                <div class="button-container-big-gun">
+                      <button class="btn-big-gun" onClick="simplexMethod()">checker</button>
+                </div>
+
                 <div id="stepHeader"><h2 class="theory-seva-h2"></h2></div>
             </html>
         </div>
 
         <script> 
-            function simplexMethod(c, A, b) {
+            /*function simplexMethod(c, A, b) {
                 // Инициализация базисного плана
                 let basis = [];
                 for (let i = 0; i < b.length; i++) {
@@ -132,11 +136,11 @@
                 console.log(result); // Вывод результата в консоль
 
                 return result;
-            }
+            }*/
 
 
-            /*// Функция для вызова симплекс метода и обновления таблицы
-            function simplexMethod() {
+            // Функция для вызова симплекс метода и обновления таблицы
+            /*function simplexMethod() {
                 var variablesValue = parseInt(document.getElementById('variables').value);
                 var restrictionsValue = parseInt(document.getElementById('restrictions').value);
 
@@ -174,7 +178,55 @@
                 cells[0].getElementsByTagName('input')[0].value = result.fun.toFixed(2); // Обновление значения F
 
                 console.log(result);
-            }*/    
+            }    */
+
+            async function simplexMethod() {
+                var variablesValue = parseInt(document.getElementById('variables').value);
+                var restrictionsValue = parseInt(document.getElementById('restrictions').value);
+
+                // Считывание коэффициентов функции цели
+                var table1 = document.getElementById('table-container1').getElementsByTagName('table')[0];
+                var row1 = table1.getElementsByTagName('tr')[1];
+                var inputs1 = row1.getElementsByTagName('input');
+                var c = [];
+                for (var i = 0; i < inputs1.length; i++) {
+                    c.push(parseFloat(inputs1[i].value) || 0);
+                }
+
+                // Считывание коэффициентов ограничений
+                var table2 = document.getElementById('table-container2').getElementsByTagName('table')[0];
+                var rows2 = table2.getElementsByTagName('tr');
+                var A = [];
+                var b = [];
+                for (var i = 1; i < rows2.length; i++) { // начинаем с 1, чтобы пропустить заголовок
+                    var inputs2 = rows2[i].getElementsByTagName('input');
+                    var rowA = [];
+                    for (var j = 0; j < inputs2.length - 1; j++) {
+                        rowA.push(parseFloat(inputs2[j].value) || 0);
+                    }
+                    A.push(rowA);
+                    b.push(parseFloat(inputs2[inputs2.length - 1].value) || 0);
+                }
+
+                // Отправка данных на сервер для оптимизации
+                var response = await fetch('/optimize', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ c: c, A: A, b: b })
+                });
+
+                var result = await response.json();
+
+                // Обновление значения F
+                var table3 = document.getElementById('table-container3').getElementsByTagName('table')[0];
+                var row3 = table3.getElementsByTagName('tr')[1]; // Получаем первую строку таблицы (индекс 1)
+                var cells = row3.getElementsByTagName('td'); // Получаем все ячейки строки
+                cells[0].getElementsByTagName('input')[0].value = result.fun.toFixed(2); // Обновление значения F
+
+                console.log(result);
+            }
 
             var a = [];
             var Value;
@@ -361,7 +413,7 @@
                 count++;
                 document.getElementById("stepHeader").getElementsByTagName("h2")[0].textContent = step; // Обновляем содержимое <h2> элемента
 
-                //simplexMethod(); // Вызов функции для нахождения оптимального решения
+                simplexMethod(); // Вызов функции для нахождения оптимального решения
 
                 return true;
             }

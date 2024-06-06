@@ -5,9 +5,31 @@ This script runs the application using a development server.
 import bottle
 import os
 import sys
+from bottle import route, run, request, response
+import numpy as np
+from scipy.optimize import linprog
+import json
 
 # routes contains the HTTP handlers for our server and must be imported.
 import routes
+
+@route('/optimize', method='POST')
+def optimize():
+    data = request.json
+    c = np.array(data['c'])
+    A = np.array(data['A'])
+    b = np.array(data['b'])
+    
+    result = linprog(c, A_ub=A, b_ub=b, method='simplex')
+    
+    response.content_type = 'application/json'
+    return json.dumps({
+        'fun': result.fun,
+        'x': result.x.tolist(),
+        'success': result.success,
+        'status': result.status,
+        'message': result.message
+    })
 
 if '--debug' in sys.argv[1:] or 'SERVER_DEBUG' in os.environ:
     # Debug mode will enable more verbose output in the console window.
